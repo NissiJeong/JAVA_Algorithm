@@ -63,7 +63,7 @@ class Graph{
         Node(int data){
             this.data = data;
             this.marked = false;
-            adjacent = new LinkedList<Node>();
+            this.adjacent = new LinkedList<Node>();
         }
     }
     Node[] nodes;
