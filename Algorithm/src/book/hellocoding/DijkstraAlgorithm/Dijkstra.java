@@ -1,11 +1,16 @@
 package book.hellocoding.DijkstraAlgorithm;
 
-import jdk.nashorn.internal.ir.SplitNode;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+
+/*
+              . A
+          6 /   .   \.1
+    start     3 |    .  finish
+          2 \ . |   / 5
+                B
+ */
 
 public class Dijkstra {
     public static List<String> proceed = new ArrayList<String>();
