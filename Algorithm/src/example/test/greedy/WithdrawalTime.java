@@ -17,7 +17,6 @@ public class WithdrawalTime {
     }
     public static int timeCalc(int pNum, int[] timeArr){
         int totalTime = 0;
-        int plusTime = 0;
 
         for(int i=0;i<timeArr.length;i++){
             for(int j=i+1; j<timeArr.length; j++){
