@@ -15,5 +15,27 @@ public class Conferenceroom {
             sTimes[i] = sc.nextInt();
             eTimes[i] = sc.nextInt();
         }
+
+        int index = findMinimum(sTimes, eTimes, checks);
+        int minTime = eTimes[index];
+
+        for(int i=0; i<sTimes.length; i++){
+            if(!checks[i] && sTimes[i] > minTime){
+
+            }
+        }
+    }
+
+    public static int findMinimum(int[] sTimes, int[] eTimes, boolean[] checks){
+        int min = Integer.MAX_VALUE;
+        int minIndex = -1;
+        for(int i=0; i<eTimes.length; i++){
+            if(!checks[i] && min > eTimes[i]){
+                min = eTimes[i];
+                minIndex = i;
+                checks[i] = true;
+            }
+        }
+        return minIndex;
     }
 }
