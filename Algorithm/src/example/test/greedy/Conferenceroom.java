@@ -1,41 +1,47 @@
 package example.test.greedy;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.Scanner;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.StringTokenizer;
 
 public class Conferenceroom {
     public static int count = 0;
     public static void main(String[] args) throws IOException {
-        Scanner sc = new Scanner(System.in);
-        int confCount = sc.nextInt();
-        int[] sTimes = new int[confCount];
-        int[] eTimes = new int[confCount];
-        boolean[] checks = new boolean[confCount];
-        for(int i=0; i<confCount; i++){
-            sTimes[i] = sc.nextInt();
-            eTimes[i] = sc.nextInt();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int N = Integer.parseInt(br.readLine());
+
+        int[][] times = new int[N][2];
+
+        StringTokenizer st;
+
+        for(int i=0; i<N; i++){
+            st = new StringTokenizer(br.readLine()," ");
+            times[i][0] = Integer.parseInt(st.nextToken());
+            times[i][1] = Integer.parseInt(st.nextToken());
         }
 
-        int index = findMinimum(sTimes, eTimes, checks);
-        int minTime = eTimes[index];
+        Arrays.sort(times, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                if(o1[1] == o2[1]){
+                    return o1[0] - o2[0];
+                }
+                return o1[1] - o2[1];
+            }
+        });
 
-        for(int i=0; i<sTimes.length; i++){
-            if(!checks[i] && sTimes[i] > minTime){
-
+        int prevEndTime = 0;
+        int count = 0;
+        for(int i=0; i<N; i++){
+            if(prevEndTime<=times[i][0]){
+                prevEndTime = times[i][1];
+                count++;
             }
         }
-    }
-
-    public static int findMinimum(int[] sTimes, int[] eTimes, boolean[] checks){
-        int min = Integer.MAX_VALUE;
-        int minIndex = -1;
-        for(int i=0; i<eTimes.length; i++){
-            if(!checks[i] && min > eTimes[i]){
-                min = eTimes[i];
-                minIndex = i;
-                checks[i] = true;
-            }
-        }
-        return minIndex;
+        System.out.println(count);
     }
 }
