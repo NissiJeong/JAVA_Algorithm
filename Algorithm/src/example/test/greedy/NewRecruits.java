@@ -36,18 +36,18 @@ public class NewRecruits {
             int sMin = a[0][1];
             int fMin = -1;
             int count = 0;
-            int[] minIndex = new int[a.length];
+            boolean[] checks = new boolean[a.length];
             for(int i=0; i<a.length; i++){
                 if(a[i][1] > sMin){
                     count++;
-                    minIndex[i] = i;
+                    checks[i] = true;
                 }else{
-                    minIndex[i] = -1;
+                    checks[i] = false;
                 }
                 if(a[i][1] == 1) fMin = a[i][0];
             }
             for(int i=0; i<a.length; i++){
-                if(a[i][0] > fMin && !Arrays.asList(minIndex).contains(i)){
+                if(a[i][0] > fMin && !checks[i]){
                     count++;
                 }
             }
