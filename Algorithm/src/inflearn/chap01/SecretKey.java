@@ -31,14 +31,17 @@ public class SecretKey {
             System.out.print(findSecretKey(str.substring(i*7, 7*(i+1))));
     }
 
-    private static String findSecretKey(String str) {
-        char answer = 0;
+    private static char findSecretKey(String str) {
         str = str.replace("*", "0").replace("#", "1");
         
-        
-        answer = (char) ((str.charAt(0) * 64 + str.charAt(1) * 32 + str.charAt(2) * 16 + str.charAt(3) * 8 + str.charAt(4) * 4 + str.charAt(5) * 2 + str.charAt(6) * 1));
-        
+        int charInt = 0;
+        for(int i=6; i>=0 ; i--){
+            int power = 1;
+            char x = str.charAt(str.length()-1-i);
+            for(int l=0; l<i; l++) power *= 2;
+            charInt += Integer.parseInt(Character.toString(x)) * power;
+        }
 
-        return String.valueOf(answer);
+        return (char)(charInt);
     }
 }
