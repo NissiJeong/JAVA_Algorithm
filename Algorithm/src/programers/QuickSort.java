@@ -3,6 +3,20 @@ package programers;
 import java.util.*;
 
 public class QuickSort {
+
+    public int[][] solution3(int[][] data, String ext, int val_ext, String sort_by){
+        String[] arr = {"code", "date", "maximum", "remain"};
+        List<String> columnList = Arrays.asList(arr);
+        int extIdx = columnList.indexOf(ext);
+        int sorIdx = columnList.indexOf(sort_by);
+        int[][] answer = Arrays.stream(data).filter(o1 -> o1[extIdx] < val_ext)
+                .sorted((o1, o2) -> o1[sorIdx] - o2[sorIdx]).toArray(int[][]::new);
+
+        int[][] answer2 = Arrays.stream(data).filter(o1 -> o1[sorIdx] < val_ext).sorted((o1, o2) -> o1[sorIdx] - o1[sorIdx]).toArray(int[][]::new);
+
+        return answer;
+    }
+
     public int[][] solution2(int[][] data, String ext, int val_ext, String sort_by) {
         
         String[] arr = {"code","date","maximum","remain"};
@@ -45,6 +59,39 @@ public class QuickSort {
         if (part < right) {
             quickSort(arr, part, right, sortIdx);
         }
+    }
+
+    void quickSort2(int[] arr, int left, int right){
+        int part = partition2(arr, left, right);
+        if(left < part - 1)
+            quickSort2(arr, left, part-1);
+        if(part < right)
+            quickSort2(arr, part, right);
+    }
+
+    int partition2(int[] arr, int left, int right){
+        int pivot = arr[(left+right)/2];
+        while(left <= right){
+            while(arr[left] < pivot){
+                left++;
+            }
+            while(arr[right] > pivot){
+                right--;
+            }
+            if(left <= right){
+                swap2(arr, left, right);
+                left++;
+                right--;
+            }
+        }
+
+        return left;
+    }
+
+    void swap2(int[] arr, int left, int right){
+        int temp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = temp;
     }
     
     int partition(int[][] arr, int left, int right, int sortIdx) {
