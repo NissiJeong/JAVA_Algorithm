@@ -14,7 +14,7 @@ import java.util.StringTokenizer;
  * - 기존에 연산된 값이 있으면 해당 값 반환
  * - 기존 w 함수 내에 있던 조건문은 그대로 사용
  */
-public class P9184_S2 {
+public class P9184_S2_dp {
 
     // 메모제이션을 위한 새로운 자료구조
     static int[][][] dp = new int[21][21][21];
