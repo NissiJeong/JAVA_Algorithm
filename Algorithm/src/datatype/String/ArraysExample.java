@@ -1,6 +1,7 @@
 package datatype.String;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class ArraysExample {
     public static void main(String[] args) {
@@ -33,5 +34,33 @@ public class ArraysExample {
 
         System.out.println("index = " + index);
         System.out.println("noIndex = " + noIndex);
+
+        int[] numbers4 = new int[3];
+
+        Arrays.sort(numbers4);
+        for (int number : numbers4) {
+            System.out.print(number+" ");
+        }
+
+        Integer[] numbers3 = {1,2,4,5,6};
+        Arrays.sort(numbers3, Comparator.reverseOrder());
+
+        System.out.println("Arrays.toString(numbers2) = " + Arrays.toString(numbers2));
+
+        Arrays.sort(numbers3, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                //return o1.compareTo(o2); //오름차순
+                return o1 - o2; //오름차순
+            }
+        });
+
+        System.out.println("Arrays.toString(numbers2) = " + Arrays.toString(numbers2));
+
+        Arrays.sort(numbers3, (a,b) ->
+                b - a //내림차순
+        );
+
+        System.out.println("Arrays.toString(numbers2) = " + Arrays.toString(numbers2));
     }
 }
