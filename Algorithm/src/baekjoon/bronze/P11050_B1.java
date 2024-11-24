@@ -8,4 +8,5 @@ package baekjoon.bronze;
  * 문제 풀이
  */
 public class P11050_B1 {
+
 }
