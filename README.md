@@ -4,3 +4,6 @@
 [![Velog's GitHub stats](https://velog-readme-stats.vercel.app/api/badge?name=DynamicProgramming1)](https://velog.io/@jnissi92/DynamicProgramming1)
 [![Velog's GitHub stats](https://velog-readme-stats.vercel.app/api/badge?name=DynamicProgramming2)](https://velog.io/@jnissi92/DynamicProgrammin2)
 [![Velog's GitHub stats](https://velog-readme-stats.vercel.app/api/badge?name=DynamicProgramming3)](https://velog.io/@jnissi92/DynamicProgramming2)
+
+##### 📁 자료구조<br>
+[![Velog's GitHub stats](https://velog-readme-stats.vercel.app/api/badge?name=DataStructure1)](https://velog.io/@jnissi92/boj2504)
