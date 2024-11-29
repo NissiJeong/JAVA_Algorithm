@@ -7,3 +7,4 @@
 
 ##### 📁 자료구조<br>
 [![Velog's GitHub stats](https://velog-readme-stats.vercel.app/api/badge?name=DataStructure1)](https://velog.io/@jnissi92/boj2504)
+[![Velog's GitHub stats](https://velog-readme-stats.vercel.app/api/badge?name=DataStructure2)](https://velog.io/@jnissi92/boj1406-i3pwwfxm)
