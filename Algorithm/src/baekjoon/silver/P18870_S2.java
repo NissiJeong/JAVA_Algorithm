@@ -33,9 +33,11 @@ public class P18870_S2 {
         for(int i=0; i<n; i++) {
             int k = Integer.parseInt(st.nextToken());
             arr1[i] = k;
+            // 중복제거
             set1.add(k);
         }
 
+        // 중복제거한 데이터 list 로 변환
         List<Integer> list1 = new ArrayList<>(set1);
         Collections.sort(list1);
 
@@ -49,6 +51,7 @@ public class P18870_S2 {
         br.close();
     }
 
+    // 이진탐색을 적용한 lowBound 메서드
     public static int lowBound(int key, List<Integer> list1) {
         int low = 0;
         int hi = list1.size();
