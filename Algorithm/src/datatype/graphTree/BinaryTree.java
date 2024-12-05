@@ -1,4 +1,4 @@
-package datatype.graph;
+package datatype.graphTree;
 
 /**
  * 배열로 나타내는 이진트리(자식 노드가 최대 2개)

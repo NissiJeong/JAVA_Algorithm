@@ -1,4 +1,4 @@
-package datatype.graph;
+package datatype.graphTree;
 
 /**
  * 그래프를 인전 행렬(2차원 배열)로 나타냄!!

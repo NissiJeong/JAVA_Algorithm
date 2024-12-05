@@ -1,4 +1,4 @@
-package datatype.graph;
+package datatype.graphTree;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
