@@ -8,7 +8,7 @@ import java.util.*;
 /**
  * dfs 이용하여 문제 풀이 연습!!
  */
-public class P1686_S5 {
+public class P6186_S5 {
 
     static boolean[][] visited;
 
