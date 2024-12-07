@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-public class P1206_S2 {
+public class P1206_S2_mentor {
     static int N,M,V;
     static int[][] graph;
     static boolean[] visitedDfs;
