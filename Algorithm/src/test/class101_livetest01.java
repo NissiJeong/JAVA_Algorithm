@@ -1,5 +1,6 @@
 package test;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,5 +26,23 @@ public class class101_livetest01 {
 
             map.put(current, i);
         }
+    }
+
+    public static int foo(int[] arr, int key) {
+        int lo = 0;
+        int hi = arr.length-1;
+
+        Arrays.sort(arr);
+
+        int count = 0;
+        while(lo <= hi) {
+            int sum = arr[lo] + arr[hi];
+
+            if(sum > key) hi--;
+            else if(sum < key) lo++;
+            else count++;
+        }
+
+        return count;
     }
 }
