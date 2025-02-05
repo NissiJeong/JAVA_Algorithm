@@ -6,10 +6,7 @@ import java.io.*;
 public class P2529_S1 {
     static int k;
     static char[] arr;
-    static long max = 0;
-    static String maxStr = "";
-    static long min = 9999999999L;
-    static String minStr = "";
+    static String maxStr = "", minStr = "";
     static boolean[] visited;
     static int[] result;
 
@@ -20,8 +17,9 @@ public class P2529_S1 {
 
         visited = new boolean[10];
         arr = new char[k];
-        result = new int[k+1];
-        for(int i=0; i<k; i++) arr[i] = st.nextToken().charAt(0);
+        result = new int[k + 1];
+
+        for (int i = 0; i < k; i++) arr[i] = st.nextToken().charAt(0);
 
         backTrack(0);
 
@@ -30,32 +28,29 @@ public class P2529_S1 {
     }
 
     static void backTrack(int depth) {
-        for(int i=0; i<depth-1; i++) {
-            if(arr[i] == '<') if(result[i] > result[i+1]) return;
-            if(arr[i] == '>') if(result[i] < result[i+1]) return;
-        }
-        if(depth == k+1) {
+        if (depth == k + 1) { // 모든 숫자를 선택했을 때
             StringBuilder sb = new StringBuilder();
-            for(int i=0; i<k+1; i++) {
-                sb.append(result[i]);
-            }
-            long temp = Long.parseLong(sb.toString());
-            if(temp > max) {
-                max = temp;
+            for (int num : result) sb.append(num);
+
+            if (maxStr.isEmpty() || sb.toString().compareTo(maxStr) > 0) {
                 maxStr = sb.toString();
             }
-            if(temp < min) {
-                min = temp;
+            if (minStr.isEmpty() || sb.toString().compareTo(minStr) < 0) {
                 minStr = sb.toString();
             }
             return;
         }
 
-        for(int i=0; i<=9; i++) {
-            if(!visited[i]) {
+        for (int i = 0; i <= 9; i++) {
+            if (!visited[i]) {
+                if (depth > 0) { // 부등호 조건 체크
+                    if (arr[depth - 1] == '<' && result[depth - 1] >= i) continue;
+                    if (arr[depth - 1] == '>' && result[depth - 1] <= i) continue;
+                }
+
                 visited[i] = true;
                 result[depth] = i;
-                backTrack(depth+1);
+                backTrack(depth + 1);
                 visited[i] = false;
             }
         }
